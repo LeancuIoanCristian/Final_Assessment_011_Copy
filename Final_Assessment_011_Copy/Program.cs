@@ -243,8 +243,8 @@ public class Player
 
 }
 
-public struct Inventory_items
-{
+public class Inventory_items : Inventory
+{ 
     public string item_name;
     public int item_Durability;
     public int item_number;
@@ -259,18 +259,21 @@ public struct Inventory_items
     public int item_Bonus_Mana_Recover;
 } 
 
-public struct Armour
+public class Armour : Inventory_items
 {
-    Inventory_items helmet;
-    Inventory_items leggings;
-    Inventory_items breastplate;
-    Inventory_items gloves;
-    Inventory_items boots;
+    public Inventory_items helmet;
+    public Inventory_items leggings;
+    public Inventory_items breastplate;
+    public Inventory_items gloves;
+    public Inventory_items boots;
+    public Inventory_items others;
 }
 
 public class Inventory
 {
     public Inventory_items[] Size = new Inventory_items[10];
+    public Armour armour = new Armour();
+    int space;
     /// <summary>
     /// 0 -> primary weapon
     /// 1 -> secondary weapon/support item
@@ -858,10 +861,8 @@ public class Inventory
     }
 }
 
-public class Loot
+public class Loot : Inventory
 {
-    public Inventory_items[] Size = new Inventory_items[10];
-    //this.Size[] = Inventory.Size[];
     Random rand = new Random();
     int loot, specific, type;
     public void Loot_Generator(string player_class)
@@ -1148,19 +1149,472 @@ public class Loot
 
         }
     }
-    public void Helmet_Of_Never_Ending_War()
+
+    //Mithic Helemts
+    public void Helmet_Of_Never_Ending_War(int type, int space)
     {
-        //Inventory.Size[3].armour.item_name;
-        //item_Durability;
-        //item_number;
-        //item_max_number;
-       // item_Bonus_Attack;
-        //item_Bonus_Defence;
-        //item_Heal_Amount;
-       // item_Lifesteal;
-      //  item_Bonus_Dodge_Rate;
-      //  item_Tenacity;
-      //  item_Bonus_Mana;
-       // item_Bonus_Mana_Recover;
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Helmet Of Never Ending War. \n"); 
+        if (type == 1)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.helmet.item_name = "Helmet Of Never Ending War";
+                    armour.helmet.item_Durability = 9999;
+                    armour.helmet.item_number = 1;
+                    armour.helmet.item_max_number = 1;
+                    armour.helmet.item_Bonus_Attack = 500;
+                    armour.helmet.item_Bonus_Defence = 100;
+                    armour.helmet.item_Heal_Amount = 1000;
+                    armour.helmet.item_Lifesteal = 30;
+                    armour.helmet.item_Bonus_Dodge_Rate = 50;
+                    armour.helmet.item_Tenacity = 100;
+                    armour.helmet.item_Bonus_Mana = 0;
+                    armour.helmet.item_Bonus_Mana_Recover = 0;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Helmet Of Never Ending War";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a warrior in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+    public void Helmet_Of_Ever_Lasting(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Helmet Of Ever Lasting.. \n");
+        if (type == 2)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.helmet.item_name = "Helmet Of Ever Lasting";
+                    armour.helmet.item_Durability = 9999;
+                    armour.helmet.item_number = 1;
+                    armour.helmet.item_max_number = 1;
+                    armour.helmet.item_Bonus_Attack = 350;
+                    armour.helmet.item_Bonus_Defence = 300;
+                    armour.helmet.item_Heal_Amount = 10000;
+                    armour.helmet.item_Lifesteal = 35;
+                    armour.helmet.item_Bonus_Dodge_Rate = 25;
+                    armour.helmet.item_Tenacity = 90;
+                    armour.helmet.item_Bonus_Mana = 1000;
+                    armour.helmet.item_Bonus_Mana_Recover = 100;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Helmet Of Ever Lastingr";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a tank in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+    public void Hat_Of_Infinit_Potential(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the  Hat Of Infinit Potential. \n");
+        if (type == 3)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.helmet.item_name = " Hat_Of_Infinit_Potential";
+                    armour.helmet.item_Durability = 9999;
+                    armour.helmet.item_number = 1;
+                    armour.helmet.item_max_number = 1;
+                    armour.helmet.item_Bonus_Attack = 500;
+                    armour.helmet.item_Bonus_Defence = 100;
+                    armour.helmet.item_Heal_Amount = 800;
+                    armour.helmet.item_Lifesteal = 15;
+                    armour.helmet.item_Bonus_Dodge_Rate = 50;
+                    armour.helmet.item_Tenacity = 100;
+                    armour.helmet.item_Bonus_Mana = 2000;
+                    armour.helmet.item_Bonus_Mana_Recover = 150;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = " Hat_Of_Infinit_Potential";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a mage in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+
+    //Mithyc Breastplates
+    public void Breastplate_Of_The_Mischief(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Breastplate Of The Mischief. \n");
+        if (type == 1)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.breastplate.item_name = "Breastplate Of The Mischief";
+                    armour.breastplate.item_Durability = 9999;
+                    armour.breastplate.item_number = 1;
+                    armour.breastplate.item_max_number = 1;
+                    armour.breastplate.item_Bonus_Attack = 200;
+                    armour.breastplate.item_Bonus_Defence = 300;
+                    armour.breastplate.item_Heal_Amount = 2000;
+                    armour.breastplate.item_Lifesteal = 20;
+                    armour.breastplate.item_Bonus_Dodge_Rate = 60;
+                    armour.breastplate.item_Tenacity = 200;
+                    armour.breastplate.item_Bonus_Mana = 0;
+                    armour.breastplate.item_Bonus_Mana_Recover = 0;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Breastplate Of The Mischief";
+                    ok = true;
+                }
+            } while(ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a warrior in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+    public void Breastplate_Of_The_Giants(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Breastplate Of The Giants. \n");
+        if (type == 2)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.breastplate.item_name = "Breastplate Of The Giants";
+                    armour.breastplate.item_Durability = 9999;
+                    armour.breastplate.item_number = 1;
+                    armour.breastplate.item_max_number = 1;
+                    armour.breastplate.item_Bonus_Attack = 200;
+                    armour.breastplate.item_Bonus_Defence = 500;
+                    armour.breastplate.item_Heal_Amount = 5000;
+                    armour.breastplate.item_Lifesteal = 30;
+                    armour.breastplate.item_Bonus_Dodge_Rate = 60;
+                    armour.breastplate.item_Tenacity = 200;
+                    armour.breastplate.item_Bonus_Mana = 1000;
+                    armour.breastplate.item_Bonus_Mana_Recover = 75;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Breastplate Of The Giants";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a tank in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+    public void Breastplate_Of_The_Phenomenal_Evil(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Breastplate Of The Phenomenal Evil. \n");
+        if (type == 3)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.breastplate.item_name = "Breastplate Of The Phenomenal Evil";
+                    armour.breastplate.item_Durability = 9999;
+                    armour.breastplate.item_number = 1;
+                    armour.breastplate.item_max_number = 1;
+                    armour.breastplate.item_Bonus_Attack = 1000;
+                    armour.breastplate.item_Bonus_Defence = 300;
+                    armour.breastplate.item_Heal_Amount = 2000;
+                    armour.breastplate.item_Lifesteal = 20;
+                    armour.breastplate.item_Bonus_Dodge_Rate = 60;
+                    armour.breastplate.item_Tenacity = 100;
+                    armour.breastplate.item_Bonus_Mana = 3000;
+                    armour.breastplate.item_Bonus_Mana_Recover = 150;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Breastplate Of The Phenomenal Evil";
+                    ok = true;
+                }
+            }while(ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a mage in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+
+    //Mithyc Gloves
+    public void Gloves_Of_The_Slayer(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Gloves Of The Slayer. \n");
+        if (type == 1)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.gloves.item_name = "Gloves Of The Slayer";
+                    armour.gloves.item_Durability = 9999;
+                    armour.gloves.item_number = 1;
+                    armour.gloves.item_max_number = 1;
+                    armour.gloves.item_Bonus_Attack = 1000;
+                    armour.gloves.item_Bonus_Defence = 300;
+                    armour.gloves.item_Heal_Amount = 2000;
+                    armour.gloves.item_Lifesteal = 30;
+                    armour.gloves.item_Bonus_Dodge_Rate = 60;
+                    armour.gloves.item_Tenacity = 100;
+                    armour.gloves.item_Bonus_Mana = 0;
+                    armour.gloves.item_Bonus_Mana_Recover = 0;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Gloves Of The Slayer";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a warrior in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+    }
+    public void Gloves_Of_The_Undefeated(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Gloves Of The Undefeated. \n");
+        if (type == 2)
+        {
+            Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+            do
+            {
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.gloves.item_name = "Gloves Of The Undefeated";
+                    armour.gloves.item_Durability = 9999;
+                    armour.gloves.item_number = 1;
+                    armour.gloves.item_max_number = 1;
+                    armour.gloves.item_Bonus_Attack = 1000;
+                    armour.gloves.item_Bonus_Defence = 300;
+                    armour.gloves.item_Heal_Amount = 2000;
+                    armour.gloves.item_Lifesteal = 30;
+                    armour.gloves.item_Bonus_Dodge_Rate = 60;
+                    armour.gloves.item_Tenacity = 100;
+                    armour.gloves.item_Bonus_Mana = 2000;
+                    armour.gloves.item_Bonus_Mana_Recover = 50;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Gloves Of The Undefeated";
+                    ok = true;
+                }
+            } while (ok == false);
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a tank in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false) ;
+        }
+    }
+    public void Gloves_Of_Infinit_Power(int type, int space)
+    {
+        string choice;
+        bool ok = false;
+        Console.WriteLine("You found the Gloves Of Infinit Power. \n");
+       
+        if (type == 3)
+        { 
+            do
+            { 
+                Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "e")
+                {
+                    armour.gloves.item_name = "Gloves Of Infinit Power";
+                    armour.gloves.item_Durability = 9999;
+                    armour.gloves.item_number = 1;
+                    armour.gloves.item_max_number = 1;
+                    armour.gloves.item_Bonus_Attack = 2000;
+                    armour.gloves.item_Bonus_Defence = 300;
+                    armour.gloves.item_Heal_Amount = 1000;
+                    armour.gloves.item_Lifesteal = 30;
+                    armour.gloves.item_Bonus_Dodge_Rate = 60;
+                    armour.gloves.item_Tenacity = 100;
+                    armour.gloves.item_Bonus_Mana = 1000;
+                    armour.gloves.item_Bonus_Mana_Recover = 300;
+                    ok = true;
+                }
+                else if (choice.ToLower() == "k")
+                {
+                    Size[space].armour.helmet.item_name = "Gloves Of Infinit Power";
+                    ok = true;
+                }
+            }while (ok == false) ;
+        }
+        else
+        {
+            do
+            {
+                Console.WriteLine("You are requiered to be a mage in order to equip this.\n Would you like to [k]eep it or [s]ell it?");
+                choice = Console.ReadLine();
+                if (choice.ToLower() == "k")
+                {
+                    ok = true;
+                }
+                else if (choice.ToLower() == "s")
+                {
+                    ok = true;
+                }
+            } while (ok == false);
+            
+        }
     }
 }
