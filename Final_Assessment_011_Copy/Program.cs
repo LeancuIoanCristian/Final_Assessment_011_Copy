@@ -256,7 +256,17 @@ public class Player
 
 }
 
-public struct Inventory_items
+public struct Equipment 
+{
+    public Inventory_items helmet;
+    public Inventory_items leggings;
+    public Inventory_items breastplate;
+    public Inventory_items gloves;
+    public Inventory_items boots;
+    public Inventory_items primary;
+    public Inventory_items secondary;
+}
+public class Inventory_items : Inventory
 { 
     public string item_name;
     public int item_Durability;
@@ -272,16 +282,7 @@ public struct Inventory_items
     public int item_Bonus_Mana_Recover;
 } 
 
-public struct Equipment 
-{
-    public Inventory_items helmet;
-    public Inventory_items leggings;
-    public Inventory_items breastplate;
-    public Inventory_items gloves;
-    public Inventory_items boots;
-    public Inventory_items primary;
-    public Inventory_items secondary;
-}
+
 
 public class Inventory
 {
@@ -315,91 +316,20 @@ public class Inventory
                         choice = Console.ReadLine();
                         if(choice.ToUpper() == "S")
                         {
-                            equipment.primary.item_name = "Sword (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Sword (secondary)";
-                            equipment.secondary.item_Durability = 100;
-                            equipment.secondary.item_max_number = equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 1;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                           Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                           Equip_item("Sword (secondary)", 1, 0, 0, 0, 0, 0, 0, 0, 7, 100, 1, 1);
                             ok = 1;
                         }
                         else if(choice.ToUpper() == "K")
                         {
-                            equipment.primary.item_name = "Knuckels";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Bandages";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 50;
-                            equipment.secondary.item_number = 20;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 5;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Knuckels (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Bandages (secondary)", 0, 0, 0, 5, 0, 0, 0, 0, 7, 1, 20, 50);
                             ok = 1;
-
                         }
                         else if (choice.ToUpper() == "A")
                         {
-                            equipment.primary.item_name = "Axe (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Axe (secondary)";
-                            equipment.secondary.item_Durability = 100;
-                            equipment.secondary.item_max_number = Size[1].item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 1;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Axe (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Axe (secondary)", 1, 0, 0, 0, 0, 0, 0, 0, 7, 100, 1, 1);
                             ok = 1;
                         }
                         else
@@ -418,90 +348,23 @@ public class Inventory
                         if (choice.ToUpper() == "S")
                         {
                             equipment.primary.item_name = "Sword (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Shiled (secondary)";
-                            equipment.secondary.item_Durability = 200;
-                            equipment.secondary.item_max_number = equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 5;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+
+                            Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Shield (secondary)",0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "L")
                         {
-                            equipment.primary.item_name = "Lance";
-                            equipment.primary.item_Durability = 200;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Small Shield";
-                            equipment.secondary.item_Durability = 150;
-                            equipment.secondary.item_max_number = 1;
-                            equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 2;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+
+                            Equip_item("Lance (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 200, 1, 1);
+                            Equip_item("Small Shield (secondary)", 0, 2, 0, 0, 0, 0, 0, 0, 7, 150, 1, 1);
                             ok = 1;
 
                         }
                         else if (choice.ToUpper() == "T")
                         {
-                            equipment.primary.item_name = "Tomahawk (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Shield (secondary)";
-                            equipment.secondary.item_Durability = 200;
-                            equipment.secondary.item_max_number = equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 5;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Tomahawk (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Shield (secondary)", 0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
                             ok = 1;
                         }
                         else
@@ -519,93 +382,20 @@ public class Inventory
                         choice = Console.ReadLine();
                         if (choice.ToUpper() == "S")
                         {
-                            equipment.primary.item_name = "Scepter (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 3;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Elixir";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 20;
-                            equipment.secondary.item_number = 10;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 15;
+                            Equip_item("Scepter (main)", 3, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Elixir (secondary)", 0, 0, 0, 0, 0, 0, 0, 15, 7, 1, 10, 20);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "W")
                         {
-                            equipment.primary.item_name = "Wand";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Magic Book";
-                            equipment.secondary.item_Durability = 150;
-                            equipment.secondary.item_max_number = 1;
-                            equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 1;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 25;
-                            equipment.secondary.item_Bonus_Mana_Recover = 5;
+                            Equip_item("Wand (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Magic Book (secondary)", 0, 0, 0, 5, 0, 0, 25, 5, 7, 150, 1, 1);
                             ok = 1;
-
                         }
                         else if (choice.ToUpper() == "G")
                         {
-                            equipment.primary.item_name = "Grimoare (main)";
-                            equipment.primary.item_Durability = 200;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 2;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 15;
-                            equipment.primary.item_Bonus_Mana_Recover = 5;
-                            //****************************************//
-                            equipment.secondary.item_name = "Elixir";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 20;
-                            equipment.secondary.item_number = 10;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 15;
+                            Equip_item("Grimoare (main)", 2, 0, 0, 0, 0, 0, 15, 0, 6, 200, 1, 1);
+                            Equip_item("Elixir (secondary)", 0, 0, 0, 0, 0, 0, 0, 15, 7, 1, 10, 20);
                             ok = 1;
                         }
                         else
@@ -623,242 +413,51 @@ public class Inventory
                         choice = Console.ReadLine();
                         if (choice.ToUpper() == "SW")
                         {
-                            equipment.primary.item_name = "Sword (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Shield (secondary)";
-                            equipment.secondary.item_Durability = 200;
-                            equipment.secondary.item_max_number = equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 5;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Shield (secondary)", 0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "K")
                         {
-                            equipment.primary.item_name = "Knuckels";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Bandages";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 50;
-                            equipment.secondary.item_number = 20;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 5;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Knuckels (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Bandages (secondary)", 0, 0, 0, 5, 0, 0, 0, 0, 7, 1, 20, 50);
                             ok = 1;
 
                         }
                         else if (choice.ToUpper() == "A")
                         {
-                            equipment.primary.item_name = "Axe (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Axe (secondary)";
-                            equipment.secondary.item_Durability = 100;
-                            equipment.secondary.item_max_number = equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 1;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Axe (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Axe (secondary)", 1, 0, 0, 0, 0, 0, 0, 0, 7, 100, 1, 1);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "SC")
                         {
-                            equipment.primary.item_name = "Scepter (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 3;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Elixir";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 20;
-                            equipment.secondary.item_number = 10;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 15;
+                            Equip_item("Scepter (main)", 2, 0, 0, 0, 0, 0, 15, 0, 6, 200, 1, 1);
+                            Equip_item("Elixir (secondary)", 0, 0, 0, 0, 0, 0, 0, 15, 7, 1, 10, 20);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "W")
                         {
-                            equipment.primary.item_name = "Wand";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Magic Book";
-                            equipment.secondary.item_Durability = 150;
-                            equipment.secondary.item_max_number = 1;
-                            equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 1;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 25;
-                            equipment.secondary.item_Bonus_Mana_Recover = 5;
+                            Equip_item("Wand (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Magic Book (secondary)", 0, 0, 0, 5, 0, 0, 25, 5, 7, 150, 1, 1);
                             ok = 1;
-
                         }
                         else if (choice.ToUpper() == "G")
                         {
-                            equipment.primary.item_name = "Grimoare (main)";
-                            equipment.primary.item_Durability = 200;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 2;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 15;
-                            equipment.primary.item_Bonus_Mana_Recover = 5;
-                            //****************************************//
-                            equipment.secondary.item_name = "Elixir";
-                            equipment.secondary.item_Durability = 1;
-                            equipment.secondary.item_max_number = 20;
-                            equipment.secondary.item_number = 10;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 15;
+                            Equip_item("Grimoare (main)", 2, 0, 0, 0, 0, 0, 15, 0, 6, 200, 1, 1);
+                            Equip_item("Elixir (secondary)", 0, 0, 0, 0, 0, 0, 0, 15, 7, 1, 10, 20);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "L")
                         {
-                            equipment.primary.item_name = "Lance";
-                            equipment.primary.item_Durability = 200;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Small Shield";
-                            equipment.secondary.item_Durability = 150;
-                            equipment.secondary.item_max_number = 1;
-                            equipment.secondary.item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 2;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Lance (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 200, 1, 1);
+                            Equip_item("Small Shield (secondary)", 0, 2, 0, 0, 0, 0, 0, 0, 7, 150, 1, 1);
                             ok = 1;
-
                         }
                         else if (choice.ToUpper() == "T")
                         {
-                            equipment.primary.item_name = "Tomahawk (main)";
-                            equipment.primary.item_Durability = 100;
-                            equipment.primary.item_max_number = equipment.primary.item_number = 1;
-                            equipment.primary.item_Bonus_Attack = 1;
-                            equipment.primary.item_Bonus_Defence = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Heal_Amount = 0;
-                            equipment.primary.item_Lifesteal = 0;
-                            equipment.primary.item_Bonus_Dodge_Rate = 0;
-                            equipment.primary.item_Tenacity = 0;
-                            equipment.primary.item_Bonus_Mana = 0;
-                            equipment.primary.item_Bonus_Mana_Recover = 0;
-                            //****************************************//
-                            equipment.secondary.item_name = "Shield (secondary)";
-                            equipment.secondary.item_Durability = 200;
-                            equipment.secondary.item_max_number = Size[1].item_number = 1;
-                            equipment.secondary.item_Bonus_Attack = 0;
-                            equipment.secondary.item_Bonus_Defence = 5;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Heal_Amount = 0;
-                            equipment.secondary.item_Lifesteal = 0;
-                            equipment.secondary.item_Bonus_Dodge_Rate = 0;
-                            equipment.secondary.item_Tenacity = 0;
-                            equipment.secondary.item_Bonus_Mana = 0;
-                            equipment.secondary.item_Bonus_Mana_Recover = 0;
+                            Equip_item("Tomahawk (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Shield (secondary)", 0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
                             ok = 1;
                         }
                         else
@@ -871,6 +470,122 @@ public class Inventory
 
         }
     }
+    public int Equip_item(string item_name, int item_Bonus_Attack, int item_Bonus_Defence, int item_Heal_Amount, int item_Lifesteal, int item_Bonus_Dodge_Rate, int item_Tenacity, int item_Bonus_Mana, int item_Bonus_Mana_Recover, int specific, int item_Durability, int item_number, int item_max_number)
+    {
+        if (specific == 1)           //Helmet
+        {
+            equipment.helmet.item_name = item_name;
+            equipment.helmet.item_Durability = item_Durability;
+            equipment.helmet.item_number = item_number;
+            equipment.helmet.item_max_number = item_max_number;
+            equipment.helmet.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.helmet.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.helmet.item_Heal_Amount = item_Heal_Amount;
+            equipment.helmet.item_Lifesteal = item_Lifesteal;
+            equipment.helmet.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.helmet.item_Tenacity = item_Tenacity;
+            equipment.helmet.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.helmet.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 2)     //Breastplate
+        {
+            equipment.breastplate.item_name = item_name;
+            equipment.breastplate.item_Durability = item_Durability;
+            equipment.breastplate.item_number = item_number;
+            equipment.breastplate.item_max_number = item_max_number;
+            equipment.breastplate.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.breastplate.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.breastplate.item_Heal_Amount = item_Heal_Amount;
+            equipment.breastplate.item_Lifesteal = item_Lifesteal;
+            equipment.breastplate.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.breastplate.item_Tenacity = item_Tenacity;
+            equipment.breastplate.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.breastplate.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 3)      //Leggings
+        {
+            equipment.leggings.item_name = item_name;
+            equipment.leggings.item_Durability = item_Durability;
+            equipment.leggings.item_number = item_number; ;
+            equipment.leggings.item_max_number = item_max_number;
+            equipment.leggings.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.leggings.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.leggings.item_Heal_Amount = item_Heal_Amount;
+            equipment.leggings.item_Lifesteal = item_Lifesteal;
+            equipment.leggings.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.leggings.item_Tenacity = item_Tenacity;
+            equipment.leggings.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.leggings.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 4)       //Boots
+        {
+            equipment.boots.item_name = item_name;
+            equipment.boots.item_Durability = item_Durability;
+            equipment.boots.item_number = item_number; ;
+            equipment.boots.item_max_number = item_max_number;
+            equipment.boots.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.boots.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.boots.item_Heal_Amount = item_Heal_Amount;
+            equipment.boots.item_Lifesteal = item_Lifesteal;
+            equipment.boots.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.boots.item_Tenacity = item_Tenacity;
+            equipment.boots.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.boots.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 5)       //Gloves
+        {
+            equipment.gloves.item_name = item_name;
+            equipment.gloves.item_Durability = item_Durability;
+            equipment.gloves.item_number = item_number; ;
+            equipment.gloves.item_max_number = item_max_number;
+            equipment.gloves.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.gloves.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.gloves.item_Heal_Amount = item_Heal_Amount;
+            equipment.gloves.item_Lifesteal = item_Lifesteal;
+            equipment.gloves.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.gloves.item_Tenacity = item_Tenacity;
+            equipment.gloves.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.gloves.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 6)       //Primary
+        {
+            equipment.primary.item_name = item_name;
+            equipment.primary.item_Durability = item_Durability;
+            equipment.primary.item_number = item_number; ;
+            equipment.primary.item_max_number = item_max_number;
+            equipment.primary.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.primary.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.primary.item_Heal_Amount = item_Heal_Amount;
+            equipment.primary.item_Lifesteal = item_Lifesteal;
+            equipment.primary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.primary.item_Tenacity = item_Tenacity;
+            equipment.primary.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.primary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else                          //Secondary
+        {
+            equipment.secondary.item_name = item_name;
+            equipment.secondary.item_Durability = item_Durability;
+            equipment.secondary.item_number = item_number; ;
+            equipment.secondary.item_max_number = item_max_number;
+            equipment.secondary.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.secondary.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.secondary.item_Heal_Amount = item_Heal_Amount;
+            equipment.secondary.item_Lifesteal = item_Lifesteal;
+            equipment.secondary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.secondary.item_Tenacity = item_Tenacity;
+            equipment.secondary.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.secondary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+    }
+
 }
 
 public class Loot : Inventory
@@ -1176,18 +891,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.helmet.item_name = "Helmet Of Never Ending War";
-                    equipment.helmet.item_Durability = 9999;
-                    equipment.helmet.item_number = 1;
-                    equipment.helmet.item_max_number = 1;
-                    equipment.helmet.item_Bonus_Attack = 500;
-                    equipment.helmet.item_Bonus_Defence = 100;
-                    equipment.helmet.item_Heal_Amount = 1000;
-                    equipment.helmet.item_Lifesteal = 30;
-                    equipment.helmet.item_Bonus_Dodge_Rate = 50;
-                    equipment.helmet.item_Tenacity = 100;
-                    equipment.helmet.item_Bonus_Mana = 0;
-                    equipment.helmet.item_Bonus_Mana_Recover = 0;
+                    Equip_item("Helmet Of Never Ending War", 500, 100, 1000, 30, 50, 100, 0, 0, 1, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1227,18 +931,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.helmet.item_name = "Helmet Of Ever Lasting";
-                    equipment.helmet.item_Durability = 9999;
-                    equipment.helmet.item_number = 1;
-                    equipment.helmet.item_max_number = 1;
-                    equipment.helmet.item_Bonus_Attack = 350;
-                    equipment.helmet.item_Bonus_Defence = 300;
-                    equipment.helmet.item_Heal_Amount = 10000;
-                    equipment.helmet.item_Lifesteal = 35;
-                    equipment.helmet.item_Bonus_Dodge_Rate = 25;
-                    equipment.helmet.item_Tenacity = 90;
-                    equipment.helmet.item_Bonus_Mana = 1000;
-                    equipment.helmet.item_Bonus_Mana_Recover = 100;
+                    Equip_item("Helmet Of Ever Lasting", 350, 300, 10000, 35, 25, 90, 1000, 100, 1, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1278,18 +971,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.helmet.item_name = " Hat_Of_Infinit_Potential";
-                    equipment.helmet.item_Durability = 9999;
-                    equipment.helmet.item_number = 1;
-                    equipment.helmet.item_max_number = 1;
-                    equipment.helmet.item_Bonus_Attack = 500;
-                    equipment.helmet.item_Bonus_Defence = 100;
-                    equipment.helmet.item_Heal_Amount = 800;
-                    equipment.helmet.item_Lifesteal = 15;
-                    equipment.helmet.item_Bonus_Dodge_Rate = 50;
-                    equipment.helmet.item_Tenacity = 100;
-                    equipment.helmet.item_Bonus_Mana = 2000;
-                    equipment.helmet.item_Bonus_Mana_Recover = 150;
+                    Equip_item("Hat_Of_Infinit_Potential", 500, 100, 800, 15, 50, 100, 2000, 150, 1, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1331,18 +1013,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.breastplate.item_name = "Breastplate Of The Mischief";
-                    equipment.breastplate.item_Durability = 9999;
-                    equipment.breastplate.item_number = 1;
-                    equipment.breastplate.item_max_number = 1;
-                    equipment.breastplate.item_Bonus_Attack = 200;
-                    equipment.breastplate.item_Bonus_Defence = 300;
-                    equipment.breastplate.item_Heal_Amount = 2000;
-                    equipment.breastplate.item_Lifesteal = 20;
-                    equipment.breastplate.item_Bonus_Dodge_Rate = 60;
-                    equipment.breastplate.item_Tenacity = 200;
-                    equipment.breastplate.item_Bonus_Mana = 0;
-                    equipment.breastplate.item_Bonus_Mana_Recover = 0;
+                    Equip_item("Breastplate Of The Mischief", 200, 300, 2000, 20, 60, 200, 0, 0, 2, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1382,18 +1053,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.breastplate.item_name = "Breastplate Of The Giants";
-                    equipment.breastplate.item_Durability = 9999;
-                    equipment.breastplate.item_number = 1;
-                    equipment.breastplate.item_max_number = 1;
-                    equipment.breastplate.item_Bonus_Attack = 200;
-                    equipment.breastplate.item_Bonus_Defence = 500;
-                    equipment.breastplate.item_Heal_Amount = 5000;
-                    equipment.breastplate.item_Lifesteal = 30;
-                    equipment.breastplate.item_Bonus_Dodge_Rate = 60;
-                    equipment.breastplate.item_Tenacity = 200;
-                    equipment.breastplate.item_Bonus_Mana = 1000;
-                    equipment.breastplate.item_Bonus_Mana_Recover = 75;
+                    Equip_item("Breastplate Of The Giants", 200, 500, 5000, 30, 60, 200, 1000, 75, 2, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1434,18 +1094,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.breastplate.item_name = "Breastplate Of The Phenomenal Evil";
-                    equipment.breastplate.item_Durability = 9999;
-                    equipment.breastplate.item_number = 1;
-                    equipment.breastplate.item_max_number = 1;
-                    equipment.breastplate.item_Bonus_Attack = 1000;
-                    equipment.breastplate.item_Bonus_Defence = 300;
-                    equipment.breastplate.item_Heal_Amount = 2000;
-                    equipment.breastplate.item_Lifesteal = 20;
-                    equipment.breastplate.item_Bonus_Dodge_Rate = 60;
-                    equipment.breastplate.item_Tenacity = 100;
-                    equipment.breastplate.item_Bonus_Mana = 3000;
-                    equipment.breastplate.item_Bonus_Mana_Recover = 150;
+                    Equip_item("Breastplate Of The Phenomenal Evil", 1000, 300, 1000, 20, 60, 100, 1000, 150, 2, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1487,18 +1136,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.gloves.item_name = "Gloves Of The Slayer";
-                    equipment.gloves.item_Durability = 9999;
-                    equipment.gloves.item_number = 1;
-                    equipment.gloves.item_max_number = 1;
-                    equipment.gloves.item_Bonus_Attack = 1000;
-                    equipment.gloves.item_Bonus_Defence = 300;
-                    equipment.gloves.item_Heal_Amount = 2000;
-                    equipment.gloves.item_Lifesteal = 30;
-                    equipment.gloves.item_Bonus_Dodge_Rate = 60;
-                    equipment.gloves.item_Tenacity = 100;
-                    equipment.gloves.item_Bonus_Mana = 0;
-                    equipment.gloves.item_Bonus_Mana_Recover = 0;
+                    Equip_item("Gloves Of The Slayer", 1000, 300, 2000, 30, 60, 100, 0, 0, 3, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1538,18 +1176,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.gloves.item_name = "Gloves Of The Undefeated";
-                    equipment.gloves.item_Durability = 9999;
-                    equipment.gloves.item_number = 1;
-                    equipment.gloves.item_max_number = 1;
-                    equipment.gloves.item_Bonus_Attack = 1000;
-                    equipment.gloves.item_Bonus_Defence = 300;
-                    equipment.gloves.item_Heal_Amount = 2000;
-                    equipment.gloves.item_Lifesteal = 30;
-                    equipment.gloves.item_Bonus_Dodge_Rate = 60;
-                    equipment.gloves.item_Tenacity = 100;
-                    equipment.gloves.item_Bonus_Mana = 2000;
-                    equipment.gloves.item_Bonus_Mana_Recover = 50;
+                    Equip_item("Gloves Of The Undefeated", 1000, 300, 2000, 30, 60, 100, 2000, 50, 3, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1590,18 +1217,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.gloves.item_name = "Gloves Of Infinit Power";
-                    equipment.gloves.item_Durability = 9999;
-                    equipment.gloves.item_number = 1;
-                    equipment.gloves.item_max_number = 1;
-                    equipment.gloves.item_Bonus_Attack = 2000;
-                    equipment.gloves.item_Bonus_Defence = 300;
-                    equipment.gloves.item_Heal_Amount = 1000;
-                    equipment.gloves.item_Lifesteal = 30;
-                    equipment.gloves.item_Bonus_Dodge_Rate = 60;
-                    equipment.gloves.item_Tenacity = 100;
-                    equipment.gloves.item_Bonus_Mana = 1000;
-                    equipment.gloves.item_Bonus_Mana_Recover = 300;
+                    Equip_item("Gloves Of Infinit Power", 2000, 300, 1000, 30, 60, 100, 2000, 300, 3, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1645,18 +1261,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.leggings.item_name = "Leggings Of The Cunning";
-                    equipment.leggings.item_Durability = 9999;
-                    equipment.leggings.item_number = 1;
-                    equipment.leggings.item_max_number = 1;
-                    equipment.leggings.item_Bonus_Attack = 800;
-                    equipment.leggings.item_Bonus_Defence = 300;
-                    equipment.leggings.item_Heal_Amount = 1000;
-                    equipment.leggings.item_Lifesteal = 30;
-                    equipment.leggings.item_Bonus_Dodge_Rate = 100;
-                    equipment.leggings.item_Tenacity = 120;
-                    equipment.leggings.item_Bonus_Mana = 0;
-                    equipment.leggings.item_Bonus_Mana_Recover = 0;
+                    Equip_item("Leggings Of The Cunning", 800, 300, 1000, 30, 100, 120, 0, 0, 4, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1698,18 +1303,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.leggings.item_name = "Leggings Of The Heaven And Earth";
-                    equipment.leggings.item_Durability = 9999;
-                    equipment.leggings.item_number = 1;
-                    equipment.leggings.item_max_number = 1;
-                    equipment.leggings.item_Bonus_Attack = 800;
-                    equipment.leggings.item_Bonus_Defence = 1000;
-                    equipment.leggings.item_Heal_Amount = 2000;
-                    equipment.leggings.item_Lifesteal = 10;
-                    equipment.leggings.item_Bonus_Dodge_Rate = 100;
-                    equipment.leggings.item_Tenacity = 120;
-                    equipment.leggings.item_Bonus_Mana = 1000;
-                    equipment.leggings.item_Bonus_Mana_Recover = 100;
+                    Equip_item("Leggings Of The Heaven And Earth", 800, 1000, 2000, 10, 100, 120, 1000, 100, 4, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1751,18 +1345,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.leggings.item_name = "Leggings Of The Arcane Sage";
-                    equipment.leggings.item_Durability = 9999;
-                    equipment.leggings.item_number = 1;
-                    equipment.leggings.item_max_number = 1;
-                    equipment.leggings.item_Bonus_Attack = 1000;
-                    equipment.leggings.item_Bonus_Defence = 100;
-                    equipment.leggings.item_Heal_Amount = 1000;
-                    equipment.leggings.item_Lifesteal = 10;
-                    equipment.leggings.item_Bonus_Dodge_Rate = 100;
-                    equipment.leggings.item_Tenacity = 120;
-                    equipment.leggings.item_Bonus_Mana = 2000;
-                    equipment.leggings.item_Bonus_Mana_Recover = 200;
+                    Equip_item("Leggings Of The Arcane Sage", 1000, 100, 1000, 10, 100, 120, 2000, 200, 4, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1805,18 +1388,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.boots.item_name = "Boots Of The Berseker";
-                    equipment.boots.item_Durability = 9999;
-                    equipment.boots.item_number = 1;
-                    equipment.boots.item_max_number = 1;
-                    equipment.boots.item_Bonus_Attack = 800;
-                    equipment.boots.item_Bonus_Defence = 300;
-                    equipment.boots.item_Heal_Amount = 1000;
-                    equipment.boots.item_Lifesteal = 30;
-                    equipment.boots.item_Bonus_Dodge_Rate = 100;
-                    equipment.boots.item_Tenacity = 120;
-                    equipment.boots.item_Bonus_Mana = 0;
-                    equipment.boots.item_Bonus_Mana_Recover = 0;
+                    Equip_item("Boots Of The Berseker", 800, 300, 1000, 30, 100, 120, 0, 0, 5, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
@@ -1857,17 +1429,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.boots.item_name = "Boots Of The Atlas";
-                    equipment.boots.item_Durability = 9999;
-                    equipment.boots.item_number = 1;
-                    equipment.boots.item_max_number = 1;
-                    equipment.boots.item_Bonus_Attack = 200;
-                    equipment.boots.item_Bonus_Defence = 500;
-                    equipment.boots.item_Heal_Amount = 800;
-                    equipment.boots.item_Lifesteal = 20;
-                    equipment.boots.item_Bonus_Dodge_Rate = 100;
-                    equipment.boots.item_Tenacity = 120;
-                    equipment.boots.item_Bonus_Mana = 1000;
+                    Equip_item("Boots Of The Atlas", 200, 500, 2000, 20, 100, 120, 1000, 75, 5, 9999, 1, 1);
                     equipment.boots.item_Bonus_Mana_Recover = 75;
                     ok = true;
                 }
@@ -1909,18 +1471,7 @@ public class Loot : Inventory
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
                 {
-                    equipment.boots.item_name = "Boots Of The Void Walker";
-                    equipment.boots.item_Durability = 9999;
-                    equipment.boots.item_number = 1;
-                    equipment.boots.item_max_number = 1;
-                    equipment.boots.item_Bonus_Attack = 800;
-                    equipment.boots.item_Bonus_Defence = 300;
-                    equipment.boots.item_Heal_Amount = 1000;
-                    equipment.boots.item_Lifesteal = 30;
-                    equipment.boots.item_Bonus_Dodge_Rate = 100;
-                    equipment.boots.item_Tenacity = 120;
-                    equipment.boots.item_Bonus_Mana = 1000;
-                    equipment.boots.item_Bonus_Mana_Recover = 100;
+                    Equip_item("Boots Of The Void Walker", 800, 300, 1000, 30, 100, 120, 1000, 100, 5, 9999, 1, 1);
                     ok = true;
                 }
                 else if (choice.ToLower() == "k")
