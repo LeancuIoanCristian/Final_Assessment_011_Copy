@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading;
 
-
 namespace Final_Assessment_011_Copy
 {
-    class Program
+    class Game
     {
         static void Main(string[] args)
         {
@@ -256,8 +255,9 @@ public class Player
 
 }
 
-public struct Equipment 
+public class Equipment 
 {
+    public int id_Item;
     public Inventory_items helmet;
     public Inventory_items leggings;
     public Inventory_items breastplate;
@@ -266,7 +266,8 @@ public struct Equipment
     public Inventory_items primary;
     public Inventory_items secondary;
 }
-public class Inventory_items : Inventory
+
+public struct Inventory_items
 { 
     public string item_name;
     public int item_Durability;
@@ -282,11 +283,9 @@ public class Inventory_items : Inventory
     public int item_Bonus_Mana_Recover;
 } 
 
-
-
 public class Inventory
 {
-    public Inventory_items[] Size = new Inventory_items[65];
+    public int[] Size = new int [65];
     public Equipment equipment = new Equipment();
     //int space;
     /// <summary>
@@ -298,10 +297,126 @@ public class Inventory
     {
         for (int i = 0; i < 8; i++)
         {
-            Console.WriteLine(Size[i].item_name + "\n" + Size[i].item_number + "\n");
+            Console.WriteLine(Size[i] + "\n" );
         }
        
     }
+    public int Equip_item(string item_name, int item_Bonus_Attack, int item_Bonus_Defence, int item_Heal_Amount, int item_Lifesteal, int item_Bonus_Dodge_Rate, int item_Tenacity, int item_Bonus_Mana, int item_Bonus_Mana_Recover, int specific, int item_Durability, int item_number, int item_max_number)
+    {
+        if (specific == 1)           //Helmet
+        {
+            equipment.helmet.item_name = item_name;
+            equipment.helmet.item_Durability = item_Durability;
+            equipment.helmet.item_number = item_number;
+            equipment.helmet.item_max_number = item_max_number;
+            equipment.helmet.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.helmet.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.helmet.item_Heal_Amount = item_Heal_Amount;
+            equipment.helmet.item_Lifesteal = item_Lifesteal;
+            equipment.helmet.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.helmet.item_Tenacity = item_Tenacity;
+            equipment.helmet.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.helmet.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 2)     //Breastplate
+        {
+            equipment.breastplate.item_name = item_name;
+            equipment.breastplate.item_Durability = item_Durability;
+            equipment.breastplate.item_number = item_number;
+            equipment.breastplate.item_max_number = item_max_number;
+            equipment.breastplate.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.breastplate.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.breastplate.item_Heal_Amount = item_Heal_Amount;
+            equipment.breastplate.item_Lifesteal = item_Lifesteal;
+            equipment.breastplate.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.breastplate.item_Tenacity = item_Tenacity;
+            equipment.breastplate.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.breastplate.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 3)      //Leggings
+        {
+            equipment.leggings.item_name = item_name;
+            equipment.leggings.item_Durability = item_Durability;
+            equipment.leggings.item_number = item_number; ;
+            equipment.leggings.item_max_number = item_max_number;
+            equipment.leggings.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.leggings.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.leggings.item_Heal_Amount = item_Heal_Amount;
+            equipment.leggings.item_Lifesteal = item_Lifesteal;
+            equipment.leggings.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.leggings.item_Tenacity = item_Tenacity;
+            equipment.leggings.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.leggings.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 4)       //Boots
+        {
+            equipment.boots.item_name = item_name;
+            equipment.boots.item_Durability = item_Durability;
+            equipment.boots.item_number = item_number; ;
+            equipment.boots.item_max_number = item_max_number;
+            equipment.boots.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.boots.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.boots.item_Heal_Amount = item_Heal_Amount;
+            equipment.boots.item_Lifesteal = item_Lifesteal;
+            equipment.boots.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.boots.item_Tenacity = item_Tenacity;
+            equipment.boots.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.boots.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 5)       //Gloves
+        {
+            equipment.gloves.item_name = item_name;
+            equipment.gloves.item_Durability = item_Durability;
+            equipment.gloves.item_number = item_number; ;
+            equipment.gloves.item_max_number = item_max_number;
+            equipment.gloves.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.gloves.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.gloves.item_Heal_Amount = item_Heal_Amount;
+            equipment.gloves.item_Lifesteal = item_Lifesteal;
+            equipment.gloves.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.gloves.item_Tenacity = item_Tenacity;
+            equipment.gloves.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.gloves.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else if (specific == 6)       //Primary
+        {
+            equipment.primary.item_name = item_name;
+            equipment.primary.item_Durability = item_Durability;
+            equipment.primary.item_number = item_number; ;
+            equipment.primary.item_max_number = item_max_number;
+            equipment.primary.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.primary.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.primary.item_Heal_Amount = item_Heal_Amount;
+            equipment.primary.item_Lifesteal = item_Lifesteal;
+            equipment.primary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.primary.item_Tenacity = item_Tenacity;
+            equipment.primary.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.primary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+        else                          //Secondary
+        {
+            equipment.secondary.item_name = item_name;
+            equipment.secondary.item_Durability = item_Durability;
+            equipment.secondary.item_number = item_number; ;
+            equipment.secondary.item_max_number = item_max_number;
+            equipment.secondary.item_Bonus_Attack = item_Bonus_Attack;
+            equipment.secondary.item_Bonus_Defence = item_Bonus_Defence;
+            equipment.secondary.item_Heal_Amount = item_Heal_Amount;
+            equipment.secondary.item_Lifesteal = item_Lifesteal;
+            equipment.secondary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
+            equipment.secondary.item_Tenacity = item_Tenacity;
+            equipment.secondary.item_Bonus_Mana = item_Bonus_Mana;
+            equipment.secondary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
+            return 1;
+        }
+    }
+
     public void Initialize_Inventory(int saving_intention, string Player_Class)
     {
         string choice;
@@ -470,122 +585,7 @@ public class Inventory
 
         }
     }
-    public int Equip_item(string item_name, int item_Bonus_Attack, int item_Bonus_Defence, int item_Heal_Amount, int item_Lifesteal, int item_Bonus_Dodge_Rate, int item_Tenacity, int item_Bonus_Mana, int item_Bonus_Mana_Recover, int specific, int item_Durability, int item_number, int item_max_number)
-    {
-        if (specific == 1)           //Helmet
-        {
-            equipment.helmet.item_name = item_name;
-            equipment.helmet.item_Durability = item_Durability;
-            equipment.helmet.item_number = item_number;
-            equipment.helmet.item_max_number = item_max_number;
-            equipment.helmet.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.helmet.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.helmet.item_Heal_Amount = item_Heal_Amount;
-            equipment.helmet.item_Lifesteal = item_Lifesteal;
-            equipment.helmet.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.helmet.item_Tenacity = item_Tenacity;
-            equipment.helmet.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.helmet.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else if (specific == 2)     //Breastplate
-        {
-            equipment.breastplate.item_name = item_name;
-            equipment.breastplate.item_Durability = item_Durability;
-            equipment.breastplate.item_number = item_number;
-            equipment.breastplate.item_max_number = item_max_number;
-            equipment.breastplate.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.breastplate.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.breastplate.item_Heal_Amount = item_Heal_Amount;
-            equipment.breastplate.item_Lifesteal = item_Lifesteal;
-            equipment.breastplate.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.breastplate.item_Tenacity = item_Tenacity;
-            equipment.breastplate.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.breastplate.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else if (specific == 3)      //Leggings
-        {
-            equipment.leggings.item_name = item_name;
-            equipment.leggings.item_Durability = item_Durability;
-            equipment.leggings.item_number = item_number; ;
-            equipment.leggings.item_max_number = item_max_number;
-            equipment.leggings.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.leggings.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.leggings.item_Heal_Amount = item_Heal_Amount;
-            equipment.leggings.item_Lifesteal = item_Lifesteal;
-            equipment.leggings.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.leggings.item_Tenacity = item_Tenacity;
-            equipment.leggings.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.leggings.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else if (specific == 4)       //Boots
-        {
-            equipment.boots.item_name = item_name;
-            equipment.boots.item_Durability = item_Durability;
-            equipment.boots.item_number = item_number; ;
-            equipment.boots.item_max_number = item_max_number;
-            equipment.boots.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.boots.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.boots.item_Heal_Amount = item_Heal_Amount;
-            equipment.boots.item_Lifesteal = item_Lifesteal;
-            equipment.boots.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.boots.item_Tenacity = item_Tenacity;
-            equipment.boots.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.boots.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else if (specific == 5)       //Gloves
-        {
-            equipment.gloves.item_name = item_name;
-            equipment.gloves.item_Durability = item_Durability;
-            equipment.gloves.item_number = item_number; ;
-            equipment.gloves.item_max_number = item_max_number;
-            equipment.gloves.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.gloves.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.gloves.item_Heal_Amount = item_Heal_Amount;
-            equipment.gloves.item_Lifesteal = item_Lifesteal;
-            equipment.gloves.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.gloves.item_Tenacity = item_Tenacity;
-            equipment.gloves.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.gloves.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else if (specific == 6)       //Primary
-        {
-            equipment.primary.item_name = item_name;
-            equipment.primary.item_Durability = item_Durability;
-            equipment.primary.item_number = item_number; ;
-            equipment.primary.item_max_number = item_max_number;
-            equipment.primary.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.primary.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.primary.item_Heal_Amount = item_Heal_Amount;
-            equipment.primary.item_Lifesteal = item_Lifesteal;
-            equipment.primary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.primary.item_Tenacity = item_Tenacity;
-            equipment.primary.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.primary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-        else                          //Secondary
-        {
-            equipment.secondary.item_name = item_name;
-            equipment.secondary.item_Durability = item_Durability;
-            equipment.secondary.item_number = item_number; ;
-            equipment.secondary.item_max_number = item_max_number;
-            equipment.secondary.item_Bonus_Attack = item_Bonus_Attack;
-            equipment.secondary.item_Bonus_Defence = item_Bonus_Defence;
-            equipment.secondary.item_Heal_Amount = item_Heal_Amount;
-            equipment.secondary.item_Lifesteal = item_Lifesteal;
-            equipment.secondary.item_Bonus_Dodge_Rate = item_Bonus_Dodge_Rate;
-            equipment.secondary.item_Tenacity = item_Tenacity;
-            equipment.secondary.item_Bonus_Mana = item_Bonus_Mana;
-            equipment.secondary.item_Bonus_Mana_Recover = item_Bonus_Mana_Recover;
-            return 1;
-        }
-    }
-
+    
 }
 
 public class Loot : Inventory
@@ -896,7 +896,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Helmet Of Never Ending War";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -936,7 +936,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Helmet Of Ever Lastingr";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -976,7 +976,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = " Hat_Of_Infinit_Potential";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1018,7 +1018,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Breastplate Of The Mischief";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while(ok == false);
@@ -1058,7 +1058,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Breastplate Of The Giants";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1099,7 +1099,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Breastplate Of The Phenomenal Evil";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             }while(ok == false);
@@ -1141,7 +1141,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Gloves Of The Slayer";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1181,7 +1181,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Gloves Of The Undefeated";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1222,7 +1222,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Gloves Of Infinit Power";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             }while (ok == false) ;
@@ -1266,7 +1266,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Leggings Of The Cunning";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1308,7 +1308,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Leggings Of The Heaven And Earth";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1350,7 +1350,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Leggings Of The Arcane Sage";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1393,7 +1393,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Boots Of The Berseker";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1435,7 +1435,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Boots Of The Atlas";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
@@ -1476,7 +1476,7 @@ public class Loot : Inventory
                 }
                 else if (choice.ToLower() == "k")
                 {
-                    Size[space].item_name = "Boots Of The Void Walker";
+                    Size[space] = equipment.id_Item;
                     ok = true;
                 }
             } while (ok == false);
