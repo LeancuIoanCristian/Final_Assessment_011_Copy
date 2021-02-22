@@ -5,8 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Map_And_Movement\Map_And_Movement.vcxproj" />
-  </ItemGroup>
-
 </Project>
