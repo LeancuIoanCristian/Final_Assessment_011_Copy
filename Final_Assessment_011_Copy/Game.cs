@@ -23,7 +23,7 @@ namespace Final_Assessment_011_Copy
                 else if (response.ToUpper() == "N")
                 {
                     saving_intention = 2;
-                    
+
                     guest.Player_Initialization(saving_intention);
                     guest_inventory.Initialize_Inventory(saving_intention, guest.player_class);
                 }
@@ -32,10 +32,10 @@ namespace Final_Assessment_011_Copy
                     Console.WriteLine("\n Please enter a valid answer.");
                 }
             }
-            
+
             //int number = 0;
             //guest_inventory.Inventory_Acces(number); // - Developer check
-            
+
             //inventory check
             /*for (number = 0; number < 8; number++)
             {
@@ -64,7 +64,7 @@ public class Player
     int delay = 3000;
     public void Player_Initialization(int saving_intention)
     {
-        if(saving_intention == 1)
+        if (saving_intention == 1)
         {
 
         }
@@ -74,10 +74,10 @@ public class Player
             Console.WriteLine("Please tell us your name: \n");
             player_name = Console.ReadLine();
             Console.WriteLine("Hello " + player_name + ". \n Wellcome in Blitzpit. \n");
-           Thread.Sleep(delay);
+            Thread.Sleep(delay);
             Console.Clear();
             int step = 0;
-            while(step == 0)
+            while (step == 0)
             {
                 Console.WriteLine(" Please choose one class: \n 1.[W]arrior \n 2.[T]ank \n 3.[M]age \n 4.[U]nspecialized \n");
                 choice = Console.ReadLine();
@@ -89,8 +89,8 @@ public class Player
                             {
                                 Console.WriteLine("Warriors have medium armor, attack, health and no mana. \n Att: 10 \n Armor: 5 \n Health: 100 \n Mana: - \n\n Are you sure you want to be a Warrior? \n 1.[Y]es \n 2.[N]o \n");
                                 step = 3;
-                                while(step == 3)
-                                { 
+                                while (step == 3)
+                                {
                                     ok = Console.ReadLine();
                                     if (ok.ToUpper() == "Y")
                                     {
@@ -110,7 +110,7 @@ public class Player
                                         step = 1;
                                         Console.Clear();
                                     }
-                                    else if( ok.ToUpper() == "N")
+                                    else if (ok.ToUpper() == "N")
                                     {
                                         choice = null;
                                         ok = null;
@@ -121,7 +121,7 @@ public class Player
                                     {
                                         Console.WriteLine("Please enter a valid input:");
                                     }
-                                    
+
                                 }
                                 break;
                             }
@@ -255,7 +255,7 @@ public class Player
 
 }
 
-public class Equipment 
+public class Equipment
 {
     public int id_Item;
     public Inventory_items helmet;
@@ -268,7 +268,7 @@ public class Equipment
 }
 
 public struct Inventory_items
-{ 
+{
     public string item_name;
     public int item_Durability;
     public int item_number;
@@ -281,11 +281,11 @@ public struct Inventory_items
     public int item_Tenacity;
     public int item_Bonus_Mana;
     public int item_Bonus_Mana_Recover;
-} 
+}
 
 public class Inventory
 {
-    public int[] Size = new int [65];
+    public int[] Size = new int[65];
     public Equipment equipment = new Equipment();
     //int space;
     /// <summary>
@@ -297,9 +297,9 @@ public class Inventory
     {
         for (int i = 0; i < 8; i++)
         {
-            Console.WriteLine(Size[i] + "\n" );
+            Console.WriteLine(Size[i] + "\n");
         }
-       
+
     }
     public int Equip_item(string item_name, int item_Bonus_Attack, int item_Bonus_Defence, int item_Heal_Amount, int item_Lifesteal, int item_Bonus_Dodge_Rate, int item_Tenacity, int item_Bonus_Mana, int item_Bonus_Mana_Recover, int specific, int item_Durability, int item_number, int item_max_number)
     {
@@ -421,21 +421,21 @@ public class Inventory
     {
         string choice;
         int ok = 0;
-        switch(Player_Class)
+        switch (Player_Class)
         {
             case "Warrior":
                 {
                     Console.WriteLine("Please select your weapons: \n 1.[S]word x2 \n 2.[K]nuckels \n 3.[A]xe x2\n");
-                    while(ok == 0)
+                    while (ok == 0)
                     {
                         choice = Console.ReadLine();
-                        if(choice.ToUpper() == "S")
+                        if (choice.ToUpper() == "S")
                         {
-                           Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
-                           Equip_item("Sword (secondary)", 1, 0, 0, 0, 0, 0, 0, 0, 7, 100, 1, 1);
+                            Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
+                            Equip_item("Sword (secondary)", 1, 0, 0, 0, 0, 0, 0, 0, 7, 100, 1, 1);
                             ok = 1;
                         }
-                        else if(choice.ToUpper() == "K")
+                        else if (choice.ToUpper() == "K")
                         {
                             Equip_item("Knuckels (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
                             Equip_item("Bandages (secondary)", 0, 0, 0, 5, 0, 0, 0, 0, 7, 1, 20, 50);
@@ -465,7 +465,7 @@ public class Inventory
                             equipment.primary.item_name = "Sword (main)";
 
                             Equip_item("Sword (main)", 1, 0, 0, 0, 0, 0, 0, 0, 6, 100, 1, 1);
-                            Equip_item("Shield (secondary)",0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
+                            Equip_item("Shield (secondary)", 0, 5, 0, 0, 0, 0, 0, 0, 7, 200, 1, 1);
                             ok = 1;
                         }
                         else if (choice.ToUpper() == "L")
@@ -585,7 +585,7 @@ public class Inventory
 
         }
     }
-    
+
 }
 
 public class Loot : Inventory
@@ -594,20 +594,20 @@ public class Loot : Inventory
     int loot, specific, type;
     public void Loot_Generator(string player_class)
     {
-        
+
         loot = rand.Next(1, 300);
         specific = rand.Next(1, 7);
         type = rand.Next(1, 3);
         Console.WriteLine(loot);
-        if(player_class == "Warrior" || player_class == "Unspecialized")
+        if (player_class == "Warrior" || player_class == "Unspecialized")
         {
-            if(type == 1)
+            if (type == 1)
             {
-                if(loot >= 288 && loot <=295)          //Mithycal gear
+                if (loot >= 288 && loot <= 295)          //Mithycal gear
                 {
 
                 }
-                else if(loot >= 273 && loot <= 287 )   //Legendary gear
+                else if (loot >= 273 && loot <= 287)   //Legendary gear
                 {
 
                 }
@@ -692,11 +692,11 @@ public class Loot : Inventory
     }
     public void Mithyc_Gear(int type, int specific)
     {
-        if(specific == 1)           //Helmet
+        if (specific == 1)           //Helmet
         {
 
         }
-        else if( specific == 2)     //Breastplate
+        else if (specific == 2)     //Breastplate
         {
 
         }
@@ -882,7 +882,7 @@ public class Loot : Inventory
     {
         string choice;
         bool ok = false;
-        Console.WriteLine("You found the Helmet Of Never Ending War. \n"); 
+        Console.WriteLine("You found the Helmet Of Never Ending War. \n");
         if (type == 1)
         {
             Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
@@ -1021,7 +1021,7 @@ public class Loot : Inventory
                     Size[space] = equipment.id_Item;
                     ok = true;
                 }
-            } while(ok == false);
+            } while (ok == false);
         }
         else
         {
@@ -1102,7 +1102,7 @@ public class Loot : Inventory
                     Size[space] = equipment.id_Item;
                     ok = true;
                 }
-            }while(ok == false);
+            } while (ok == false);
         }
         else
         {
@@ -1200,7 +1200,7 @@ public class Loot : Inventory
                 {
                     ok = true;
                 }
-            } while (ok == false) ;
+            } while (ok == false);
         }
     }
     public void Gloves_Of_Infinit_Power(int type, int space)
@@ -1208,11 +1208,11 @@ public class Loot : Inventory
         string choice;
         bool ok = false;
         Console.WriteLine("You found the Gloves Of Infinit Power. \n");
-       
+
         if (type == 3)
-        { 
+        {
             do
-            { 
+            {
                 Console.WriteLine("Would you like to [e]quip it, or [k]eep it safe?");
                 choice = Console.ReadLine();
                 if (choice.ToLower() == "e")
@@ -1225,7 +1225,7 @@ public class Loot : Inventory
                     Size[space] = equipment.id_Item;
                     ok = true;
                 }
-            }while (ok == false) ;
+            } while (ok == false);
         }
         else
         {
@@ -1242,7 +1242,7 @@ public class Loot : Inventory
                     ok = true;
                 }
             } while (ok == false);
-            
+
         }
     }
 
