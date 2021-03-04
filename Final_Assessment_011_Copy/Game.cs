@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Final_Assessment_011_Copy
 {
@@ -7,12 +9,16 @@ namespace Final_Assessment_011_Copy
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(200,50);
             int saving_intention = 0;
             string response = " ";
             Console.WriteLine(" Hello Adventurer!\n Have you played this game before? \n 1.[Y]es \n 2.[N]o \n (Please enter the response) \n");
             Player guest = new Player();
             Inventory guest_inventory = new Inventory();
             Loot guest_loot = new Loot();
+            Movement gameplay = new Movement();
+            Environment environment = new Environment();
+
             while (saving_intention == 0)
             {
                 response = Console.ReadLine();
@@ -41,7 +47,17 @@ namespace Final_Assessment_011_Copy
             {
                 Console.WriteLine(guest_inventory.Size[number].Item_name);
             }*/
+            char[][] map = new char[21][];
+            int i = 0, j = 0;
+            //gameplay.Map_Generation(i,j);
+            environment.Map();
+                
+            
+           
         }
+
+
+
     }
 }
 
