@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Final_Assessment_011_Copy
 {
-    class Game
+    public class Game
     {
+        
         static void Main(string[] args)
         {
             Console.SetWindowSize(200,50);
@@ -47,18 +48,22 @@ namespace Final_Assessment_011_Copy
             {
                 Console.WriteLine(guest_inventory.Size[number].Item_name);
             }*/
-            char[][] map = new char[21][];
-            int i = 0, j = 0;
-            //gameplay.Map_Generation(i,j);
+            
+            
+            environment.Link(guest);
             environment.Map();
                 
-            
-           
+            /*void Update()
+            { 
+                guest.player_health_max = guest_inventory.equipment.secondary.item_Heal_Amount + guest_inventory.equipment.primary.item_Heal_Amount +guest_inventory.equipment.boots.item_Heal_Amount + guest_inventory.equipment.breastplate.item_Heal_Amount + guest_inventory.equipment.helmet.item_Heal_Amount + guest_inventory.equipment.gloves.item_Heal_Amount + guest_inventory.equipment.leggings.item_Heal_Amount;
+            }*/
         }
-
-
-
+           
     }
+
+
+    
+   
 }
 
 public class Player
@@ -72,11 +77,14 @@ public class Player
     public int player_dodge_rate = 10;
     public int player_mana_recover;
     public int player_mana;
+    public int player_mana_max;
     public int player_tenacity;
     public int player_armour;
     public int player_attack;
     public int player_health;
+    public int player_health_max;
     public int player_health_recovery;
+    public int score = 0;
     int delay = 3000;
     public void Player_Initialization(int saving_intention)
     {
@@ -265,10 +273,12 @@ public class Player
                     Console.WriteLine("Please enter a valid input:");
                 }
             }
+            player_health_max = player_health;
+            player_mana_max = player_mana;
 
+            
         }
     }
-
 }
 
 public class Equipment
@@ -1515,6 +1525,234 @@ public class Loot : Inventory
 
         }
     }
+
+
+}
+
+public class Environment
+{
+    string[,] map = new string[50, 50];
+    string player = "O";
+    Random random = new Random();
+    bool exit = false;
+    int character_Horizontal_Movement;
+    int character_Vertical_Movement;
+    private const int lenght = 100;
+    private const int width = 100;
+    char[,] map_Array = new char[lenght, width];
+    int rooms_Counter = 1;
+    int rooms_Cleared = 0;
+    int spawn_x;
+    int spawn_y;
+    int spawn_witdth;
+    int spawn_height;
+    Player guest = new Player();
+    public void Link(Player guest)
+    {
+        this.guest = guest;
+    }
+    public void Map()
+    {
+        do
+        {
+            if (rooms_Cleared != rooms_Counter)
+            {
+                Console.Clear();
+                Console.SetCursorPosition(10, 0);
+                Console.Write("Score: {0}", guest.score);
+                Console.SetCursorPosition(0, 31);
+                Console.Write("Health: {0}/{1}", guest.player_health, guest.player_health_max);
+                Console.SetCursorPosition(29, 31);
+                Console.Write("Mana: {0}/{1}", guest.player_mana, guest.player_mana_max);
+                if (exit == false && rooms_Cleared != rooms_Counter)
+                {
+
+                    int room_Height = random.Next(5, 10);
+                    int room_Width = random.Next(5, 20);
+                    int spawn_Generator_Width = random.Next(1, 30 - room_Width - 1);
+                    int spawn_Generator_Height = random.Next(1, 30 - room_Height - 1);
+
+                    character_Horizontal_Movement = spawn_Generator_Width + 1;
+                    character_Vertical_Movement = spawn_Generator_Height + 1;
+
+                    for (int y = 0; y <= room_Height; y++)
+                    {
+                        for (int x = 0; x <= room_Width; x++)
+                        {
+                            if (spawn_Generator_Width + room_Width >= 29)
+                            {
+                                int horizontal_Centering = spawn_Generator_Width + room_Width - 30;
+                                spawn_Generator_Width = spawn_Generator_Width - horizontal_Centering;
+                            }
+                            if (spawn_Generator_Height + room_Height >= 29)
+                            {
+                                int vertical_Centering = spawn_Generator_Height + room_Height - 30;
+                                spawn_Generator_Height = spawn_Generator_Height - vertical_Centering;
+                            }
+                            if (y == 0 || y == room_Height)
+                            {
+                                map[spawn_Generator_Width + x, spawn_Generator_Height + y] = "_";
+                            }
+                            else if (x == 0 || x == room_Width)
+                            {
+                                map[spawn_Generator_Width + x, spawn_Generator_Height + y] = "|";
+                            }
+                            else
+                            {
+                                map[spawn_Generator_Width + x, spawn_Generator_Height + y] = ".";
+                            }
+                        }
+                    }
+                    spawn_x = room_Width;
+                    spawn_y = room_Height;
+                    spawn_witdth = spawn_Generator_Width;
+                    spawn_height = spawn_Generator_Height;
+                    int room_roll = random.Next(1, 3);
+                    if (room_roll == 1)
+                    {
+                        if (spawn_witdth <= 28)
+                        {
+                            int character_Spawn = random.Next(1, spawn_y - 1);
+                            map[spawn_witdth + 1, spawn_height + 1] = "#";
+                        }
+                        if (spawn_witdth > 28)
+                        {
+                            int character_Spawn = random.Next(1, spawn_y - 1);
+                            map[spawn_witdth, spawn_height + 1] = "#";
+                        }
+                    }
+                    else if (room_roll == 2)
+                    {
+                        if (spawn_height > 28)
+                        {
+                            int character_Spawn = random.Next(1, spawn_x - 1);
+                            map[spawn_witdth, spawn_height + 1] = "#";
+                        }
+                        if (spawn_height > 28)
+                        {
+                            int character_Spawn = random.Next(1, spawn_x - 1);
+                            map[spawn_witdth, spawn_height + 1] = "#";
+                        }
+                    }
+                }
+                
+                rooms_Cleared++;
+            }             
+            for (int height_Signs = 0; height_Signs <= 28; height_Signs++)
+            {
+                for (int width_Signs = 0; width_Signs <= 28; width_Signs++)
+                {
+                    Console.SetCursorPosition(height_Signs, width_Signs);
+                    Console.Write(map[height_Signs, width_Signs]);
+                }
+            }
+
+            ConsoleKeyInfo pressedKey;
+            pressedKey = Console.ReadKey(true);
+            switch (pressedKey.Key)
+            {
+                case ConsoleKey.Escape:
+                    {
+                        Console.SetCursorPosition(0, 33);
+                        Console.WriteLine("(!)Are you sure you want to leave?\n[Y]es/[N]o\n");
+                        int agreement = 1;
+                        string answer;
+                        do
+                        {
+                            answer = Console.ReadLine();
+                            if (answer.ToUpper() == "Y")
+                            {
+                                exit = true;
+                                agreement = 1;
+                            }
+                            else if (answer.ToUpper() == "N")
+                            {
+                                agreement = 2;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Please emter a valid answer\n");
+                            }
+                        } while (agreement == 0);
+                    }
+                    break;
+                case ConsoleKey.UpArrow:
+                    {
+
+                        if (character_Vertical_Movement > 0)
+                        {
+                            if (map[character_Horizontal_Movement, character_Vertical_Movement - 1] == "_" || map[character_Horizontal_Movement, character_Vertical_Movement - 1] == null)
+                            { }
+                            else
+                            {
+                                character_Vertical_Movement--;
+                                map[character_Horizontal_Movement, character_Vertical_Movement] = "O";
+                                map[character_Horizontal_Movement, character_Vertical_Movement + 1] = ".";
+                            }
+                        }
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    {
+                        if (character_Vertical_Movement < 28)
+                        {
+                            if (map[character_Horizontal_Movement, character_Vertical_Movement + 1] == "_" || map[character_Horizontal_Movement, character_Vertical_Movement + 1] == null)
+                            { }
+                            else
+                            {
+                                character_Vertical_Movement++;
+                                map[character_Horizontal_Movement, character_Vertical_Movement] = "O";
+                                map[character_Horizontal_Movement, character_Vertical_Movement - 1] = ".";
+                            }
+                        }
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    {
+                        if (character_Horizontal_Movement > 1)
+                        {
+                            if (map[character_Horizontal_Movement - 1, character_Vertical_Movement] == "|" || map[character_Horizontal_Movement - 1, character_Vertical_Movement] == null)
+                            { }
+                            else
+                            {
+                                character_Horizontal_Movement--;
+                                map[character_Horizontal_Movement, character_Vertical_Movement] = "O";
+                                map[character_Horizontal_Movement + 1, character_Vertical_Movement] = ".";
+                            }
+                        }
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    {
+                        if (character_Horizontal_Movement < 28)
+                        {
+                            if (map[character_Horizontal_Movement + 1, character_Vertical_Movement] == "|" || map[character_Horizontal_Movement + 1, character_Vertical_Movement] == null)
+                            { }
+                            else
+                            {
+                                character_Horizontal_Movement++;
+                                map[character_Horizontal_Movement, character_Vertical_Movement] = "O";
+                                map[character_Horizontal_Movement - 1, character_Vertical_Movement] = ".";
+                            }
+                        }
+                    }
+                    break;
+            }
+                
+                
+             
+
+
+                            
+                
+        } while (exit == false);
+
+    }
+}
+public class Movement
+{
+
+
 
 
 }
